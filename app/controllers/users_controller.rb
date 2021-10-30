@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.where(activated: true).paginate(page: params[:page])
+    @messages = "Hello !!"
   end
 
 	def show
@@ -33,7 +34,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile update"
+      flash[:success] = "profile update !!"
       redirect_to @user
     else
       render 'edit'
